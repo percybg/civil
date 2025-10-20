@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'ordem-servico-defeitos',
     loadChildren: () => import('./page/ordem-servico-defeitos/ordem-servico-defeitos.module').then( m => m.OrdemServicoDefeitosPageModule)
   },
+  {
+    path: 'ordem-servico-nova-foto',
+    loadChildren: () => import('./page/ordem-servico-nova-foto/ordem-servico-nova-foto.module').then( m => m.OrdemServicoNovaFotoPageModule)
+  },
 
 
 ];

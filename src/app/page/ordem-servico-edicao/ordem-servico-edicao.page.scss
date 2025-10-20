@@ -74,3 +74,19 @@ ion-grid ion-col {
     padding-left: 8px;
   }
 }
+
+.button-container {
+  // Espaçamento para o botão não colar no card do formulário nem nas bordas
+  padding: 0 16px 24px 16px;
+  background: #F4F7FA;
+  // Alinha o conteúdo (o botão) à direita
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-next {
+  ion-icon {
+    font-size: 28px; // Tamanho do ícone
+    color: #023A51; // Cor azul escura
+  }
+}

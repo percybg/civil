@@ -16,7 +16,7 @@ export class OrdemServicoEdicaoPage implements OnInit {
 
   proximaEtapa() {
     console.log('Botão de próxima etapa clicado!');
-    // A linha abaixo está comentada porque a nova página ainda não existe.
-    // this.router.navigate(['/tabs/NOME-DA-PROXIMA-PAGINA']);
+    
+    this.router.navigate(['/tabs/ordem-servico-defeitos']);
   }
 }

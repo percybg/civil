@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/ordem-servico-defeitos" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ordem Serviço - Fotos - Nova Foto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-container">
+    <ion-button expand="block" class="btn-localizar" (click)="localizarFoto()">Localizar foto</ion-button>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Foto</ion-label>
+      <div class="image-placeholder">
+        <img *ngIf="fotoPath" [src]="fotoPath" />
+        <div *ngIf="!fotoPath" class="placeholder-box"></div>
+      </div>
+    </ion-item>
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" class="btn-confirmar" (click)="confirmarInclusao()">Confirmar inclusão de foto</ion-button>
+  </div>
+</ion-content>

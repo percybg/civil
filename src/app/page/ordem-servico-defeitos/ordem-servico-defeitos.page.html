@@ -1,13 +1,80 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>ordem-servico-defeitos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/ordem-servico-edicao" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ordem Serviço - Edição</ion-title>
+  </ion-toolbar>
+
+  <!-- Barra de Segmentos (Abas) -->
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segmentoAtivo" (ionChange)="segmentoMudou($event)">
+      <ion-segment-button value="defeitos">
+        <ion-label>DEFEITOS/CAUSAS</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="observacao">
+        <ion-label>OBSERVAÇÃO</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="fotos">
+        <ion-label>FOTOS</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">ordem-servico-defeitos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- ================================================== -->
+  <!-- Conteúdo da Aba DEFEITOS/CAUSAS (RESTAURADO) -->
+  <!-- ================================================== -->
+  <div class="form-container" *ngIf="segmentoAtivo === 'defeitos'">
+    <ion-item lines="none">
+      <ion-label position="stacked">Defeitos Constatados</ion-label>
+      <ion-textarea rows="5" placeholder="Digite aqui..."></ion-textarea>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Causas Prováveis</ion-label>
+      <ion-textarea rows="5" placeholder="Digite aqui..."></ion-textarea>
+    </ion-item>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- Conteúdo da Aba OBSERVAÇÃO (RESTAURADO) -->
+  <!-- ================================================== -->
+  <div class="form-container" *ngIf="segmentoAtivo === 'observacao'">
+    <ion-item lines="none">
+      <ion-label position="stacked">Observação</ion-label>
+      <ion-textarea rows="12" placeholder="Digite a observação aqui..."></ion-textarea>
+    </ion-item>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- Conteúdo da Aba FOTOS -->
+  <!-- ================================================== -->
+  <div class="form-container" *ngIf="segmentoAtivo === 'fotos'">
+    <!-- Cabeçalho da seção de fotos -->
+    <ion-grid class="ion-no-padding header-fotos">
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <ion-col size="auto">
+          <ion-label>Fotos</ion-label>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button class="btn-nova-foto" (click)="tirarFoto()">Nova Foto</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Lista de fotos -->
+    <div class="lista-fotos">
+      <img *ngFor="let foto of fotos" [src]="foto.webviewPath" />
+      <div *ngIf="fotos.length === 0" class="sem-fotos">
+        <p>Nenhuma foto adicionada.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão no final do conteúdo -->
+  <div class="button-container">
+    <ion-button expand="block" class="btn-confirmar">Confirmar</ion-button>
+  </div>
 </ion-content>

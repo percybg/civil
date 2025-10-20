@@ -1,3 +1,4 @@
+// Estilos da página (fundo, cabeçalho)
 :host {
   ion-content {
     --background: #F4F7FA;
@@ -11,15 +12,6 @@ ion-header {
       color: #023A51;
     }
   }
-  .btn-nova {
-    --background: #e9edf1;
-    --color: #023A51;
-    --border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    height: 32px;
-    margin-right: 8px;
-  }
 }
 
 // Estilo do "Card" do Formulário
@@ -31,14 +23,23 @@ ion-header {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
 
-// Estilos dos Campos do Formulário (Inputs)
+// Botão Localizar Foto
+.btn-localizar {
+  --background: #e9edf1;
+  --color: #023A51;
+  --border-radius: 6px;
+  font-weight: 500;
+  text-transform: none;
+  margin-bottom: 24px;
+}
+
+// Estilos do placeholder da imagem
 ion-item {
   --background: transparent;
   --padding-start: 0;
   --inner-padding-end: 0;
   --border-width: 0;
   margin-bottom: 20px;
-  position: relative;
 
   ion-label {
     font-size: 14px;
@@ -46,43 +47,32 @@ ion-item {
     color: #023A51;
     margin-bottom: 8px;
   }
+}
 
-  ion-input {
-    --background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    --padding-start: 12px;
-    --padding-end: 12px;
-    font-size: 16px;
-    color: #333;
+.image-placeholder {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden; // Garante que a imagem não saia das bordas arredondadas
+
+  img, .placeholder-box {
+    width: 100%;
+    display: block;
+    aspect-ratio: 360 / 171;
   }
 
-  &.item-has-focus ion-input {
-    border-color: #5298FF;
-  }
-
-  ion-icon {
-    position: absolute;
-    right: 12px;
-    top: 55%;
-    transform: translateY(-50%);
-    color: #8c8c8c;
-  }
-
-  ion-input[readonly] {
-    cursor: pointer;
+  .placeholder-box {
+    background: #f8f9fa;
   }
 }
 
-// =======================================
-// Estilo do Botão Principal (CORRIGIDO)
-// =======================================
+// Estilo do Rodapé e Botão
 .button-container {
   padding: 8px 16px 16px 16px;
   background: #F4F7FA;
 }
 
-.btn-pesquisar {
+.btn-confirmar {
   --background: #E9F2FF;
   --background-activated: #d8e6fa;
   color: #5298FF;
@@ -91,5 +81,5 @@ ion-item {
   height: 50px;
   font-size: 16px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
 }
