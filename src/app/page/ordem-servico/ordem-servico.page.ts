@@ -17,6 +17,11 @@ export class OrdemServicoPage {
   dataConclusaoInicial: string | null = null;
   dataConclusaoFinal: string | null = null;
 
+  novaOrdemServico() {
+  console.log('Navegando para a página de edição...');
+  this.router.navigate(['/tabs/ordem-servico-edicao']);
+  }
+
   constructor(
     private popoverCtrl: PopoverController,
     private router: Router

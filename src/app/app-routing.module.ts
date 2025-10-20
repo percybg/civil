@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'ordem-servico-edicao',
     loadChildren: () => import('./page/ordem-servico-edicao/ordem-servico-edicao.module').then( m => m.OrdemServicoEdicaoPageModule)
   },
+  {
+    path: 'ordem-servico-defeitos',
+    loadChildren: () => import('./page/ordem-servico-defeitos/ordem-servico-defeitos.module').then( m => m.OrdemServicoDefeitosPageModule)
+  },
 
 
 ];

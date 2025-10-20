@@ -30,7 +30,7 @@ const routes: Routes = [
         path: 'ordem-servico',
         loadChildren: () => import('../page/ordem-servico/ordem-servico.module').then(m => m.OrdemServicoPageModule),
         data: { noHeader: true },
-        canActivate: [RouterTokenValidation]
+        canActivate:[RouterTokenValidation]
       },
       {
         path: 'ordem-servico-pesquisa',
@@ -38,6 +38,16 @@ const routes: Routes = [
         data: { noHeader: true },
         canActivate: [RouterTokenValidation]
       },
+      // ==================================================
+      // NOVA ROTA PARA A PÁGINA DE EDIÇÃO
+      // ==================================================
+      {
+        path: 'ordem-servico-edicao',
+        loadChildren: () => import('../page/ordem-servico-edicao/ordem-servico-edicao.module').then(m => m.OrdemServicoEdicaoPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
+      // ==================================================
       {
         path: 'home-estoque',
         loadChildren: () => import('../page/home-estoque/home-estoque.module').then(m => m.HomeEstoquePageRoutingModule),
