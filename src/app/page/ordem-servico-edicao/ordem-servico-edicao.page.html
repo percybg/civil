@@ -35,19 +35,23 @@
       </ion-select>
     </ion-item>
 
-    <!-- Datas em linha -->
+    <!-- ======================================= -->
+    <!-- DATAS CORRIGIDAS PARA USAR O CALENDÁRIO -->
+    <!-- ======================================= -->
     <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col>
-          <ion-item lines="none">
+          <ion-item lines="none" (click)="openCalendar($event, 'dataAbertura')">
             <ion-label position="stacked">Data Abertura</ion-label>
-            <ion-input type="text" placeholder="dd/mm/aaaa"></ion-input>
+            <ion-input readonly="true" [value]="formatDate(dataAbertura)" placeholder="dd/mm/aaaa"></ion-input>
+            <ion-icon name="calendar-outline" slot="end"></ion-icon>
           </ion-item>
         </ion-col>
         <ion-col>
-          <ion-item lines="none">
+          <ion-item lines="none" (click)="openCalendar($event, 'dataConclusao')">
             <ion-label position="stacked">Data Conclusão</ion-label>
-            <ion-input type="text" placeholder="dd/mm/aaaa"></ion-input>
+            <ion-input readonly="true" [value]="formatDate(dataConclusao)" placeholder="dd/mm/aaaa"></ion-input>
+            <ion-icon name="calendar-outline" slot="end"></ion-icon>
           </ion-item>
         </ion-col>
       </ion-row>

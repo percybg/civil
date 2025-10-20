@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { format, parseISO } from 'date-fns';
+import { CalendarPopoverComponent } from '../../components/calendar-popover/calendar-popover.component';
 
 @Component({
   standalone: false,
@@ -9,14 +12,53 @@ import { Router } from '@angular/router';
 })
 export class OrdemServicoEdicaoPage implements OnInit {
 
-  constructor(private router: Router) { }
+  // Variáveis para armazenar as datas
+  dataAbertura: string | null = null;
+  dataConclusao: string | null = null;
+
+  constructor(
+    private router: Router,
+    private popoverCtrl: PopoverController // Injetar o PopoverController
+  ) { }
 
   ngOnInit() {
   }
 
+  // Função para abrir o calendário
+  async openCalendar(event: any, fieldName: 'dataAbertura' | 'dataConclusao') {
+    const popover = await this.popoverCtrl.create({
+      component: CalendarPopoverComponent,
+      event: event,
+      backdropDismiss: true,
+      translucent: true,
+      cssClass: 'calendar-popover'
+    });
+
+    await popover.present();
+
+    const { data } = await popover.onDidDismiss();
+
+    if (data && data.date) {
+      if (fieldName === 'dataAbertura') {
+        this.dataAbertura = data.date;
+      } else if (fieldName === 'dataConclusao') {
+        this.dataConclusao = data.date;
+      }
+    }
+  }
+
+  // Função para formatar a data para exibição
+  formatDate(isoString: string | null): string {
+    if (!isoString) return '';
+    try {
+      return format(parseISO(isoString), 'dd/MM/yyyy');
+    } catch (error) {
+      return '';
+    }
+  }
+
   proximaEtapa() {
     console.log('Botão de próxima etapa clicado!');
-    
     this.router.navigate(['/tabs/ordem-servico-defeitos']);
   }
 }

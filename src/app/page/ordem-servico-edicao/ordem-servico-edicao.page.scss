@@ -90,3 +90,19 @@ ion-grid ion-col {
     color: #023A51; // Cor azul escura
   }
 }
+
+ion-item {
+  position: relative;
+
+  ion-icon[name="calendar-outline"] {
+    position: absolute;
+    right: 12px;
+    top: 55%;
+    transform: translateY(-50%);
+    color: #8c8c8c;
+  }
+
+  ion-input[readonly] {
+    cursor: pointer;
+  }
+}
