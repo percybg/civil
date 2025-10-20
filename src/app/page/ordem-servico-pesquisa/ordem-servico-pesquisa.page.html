@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/ordem-servico" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ordem Serviço - Pesquisa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Loop para criar um card para cada resultado -->
+  <ion-card *ngFor="let item of resultados">
+    <ion-card-content>
+      <ion-grid class="ion-no-padding">
+        <!-- Linha 1: OS e Status -->
+        <ion-row class="ion-align-items-start">
+          <ion-col size="6">
+            <p class="label">OS: <span class="value">{{ item.os }}</span></p>
+          </ion-col>
+          <ion-col size="6" class="ion-text-end">
+            <p class="status">{{ item.status }}</p>
+          </ion-col>
+        </ion-row>
+
+        <!-- Linha 2: Descrição -->
+        <ion-row>
+          <ion-col>
+            <p class="label">Descrição: <span class="value">{{ item.descricao }}</span></p>
+          </ion-col>
+        </ion-row>
+
+        <!-- Outras informações -->
+        <p class="label">Empreendimento: <span class="value">{{ item.empreendimento }}</span></p>
+        <p class="label">Equipamento: <span class="value">{{ item.equipamento }}</span></p>
+        <p class="label">Operador / Motorista: <span class="value">{{ item.operador }}</span></p>
+        <p class="label">Manutentor: <span class="value">{{ item.manutentor }}</span></p>
+
+        <!-- Linha Final: Datas -->
+        <ion-row>
+          <ion-col>
+            <p class="label">Data Abertura: <span class="value">{{ item.dataAbertura }}</span></p>
+          </ion-col>
+          <ion-col class="ion-text-end">
+            <p class="label">Data Conclusão: <span class="value">{{ item.dataConclusao }}</span></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+    <!-- Botão de Detalhes -->
+    <div class="details-button-container">
+      <ion-button fill="clear" expand="block" class="details-button">VER DETALHES</ion-button>
+    </div>
+  </ion-card>
+</ion-content>

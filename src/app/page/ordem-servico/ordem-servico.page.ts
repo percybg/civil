@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { CalendarPopoverComponent } from '../../components/calendar-popover/calendar-popover.component';
@@ -16,23 +17,21 @@ export class OrdemServicoPage {
   dataConclusaoInicial: string | null = null;
   dataConclusaoFinal: string | null = null;
 
-  constructor(private popoverCtrl: PopoverController) { }
+  constructor(
+    private popoverCtrl: PopoverController,
+    private router: Router
+  ) { }
 
   async openCalendar(event: any, fieldName: string) {
     const popover = await this.popoverCtrl.create({
       component: CalendarPopoverComponent,
-      event: event, // O popover aparecerá ancorado ao elemento clicado
-      backdropDismiss: true, // Fecha ao clicar fora
+      event: event,
+      backdropDismiss: true,
       translucent: true,
-      cssClass: 'calendar-popover' // Classe para estilização opcional
+      cssClass: 'calendar-popover'
     });
-
     await popover.present();
-
-    // Aguarda o popover ser fechado
     const { data } = await popover.onDidDismiss();
-
-    // Se uma data foi retornada, atualiza o campo correto
     if (data && data.date) {
       switch (fieldName) {
         case 'aberturaInicial': this.dataAberturaInicial = data.date; break;
@@ -50,5 +49,10 @@ export class OrdemServicoPage {
     } catch (error) {
       return '';
     }
+  }
+
+  pesquisar() {
+    console.log('Botão PESQUISAR clicado! Navegando para /tabs/ordem-servico-pesquisa');
+    this.router.navigate(['/tabs/ordem-servico-pesquisa']);
   }
 }
