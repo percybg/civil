@@ -98,7 +98,7 @@ export class newHomePage {
    */
   abastecimento() {
     console.log('Botão Abastecimento clicado');
-    // this.router.navigate(['/abastecimento']);
+    this.router.navigate(['/tabs/abastecimento']);
   }
 
   // ==================================================

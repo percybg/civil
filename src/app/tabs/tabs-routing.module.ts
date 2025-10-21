@@ -50,12 +50,36 @@ const routes: Routes = [
         data: { noHeader: true },
         canActivate: [RouterTokenValidation]
       },
-      // ==================================================
-      // NOVA ROTA PARA A PÁGINA DE NOVA FOTO
-      // ==================================================
       {
         path: 'ordem-servico-nova-foto',
         loadChildren: () => import('../page/ordem-servico-nova-foto/ordem-servico-nova-foto.module').then(m => m.OrdemServicoNovaFotoPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
+      {
+        path: 'abastecimento',
+        loadChildren: () => import('../page/abastecimento/abastecimento.module').then(m => m.AbastecimentoPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
+      {
+        path: 'abastecimento-proprio',
+        loadChildren: () => import('../page/abastecimento-proprio/abastecimento-proprio.module').then(m => m.AbastecimentoProprioPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
+      {
+        path: 'abastecimento-proprio-pesquisa',
+        loadChildren: () => import('../page/abastecimento-proprio-pesquisa/abastecimento-proprio-pesquisa.module').then(m => m.AbastecimentoProprioPesquisaPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
+      // ==================================================
+      // NOVA ROTA PARA A PÁGINA DE EDIÇÃO
+      // ==================================================
+      {
+        path: 'abastecimento-proprio-edicao',
+        loadChildren: () => import('../page/abastecimento-proprio-edicao/abastecimento-proprio-edicao.module').then(m => m.AbastecimentoProprioEdicaoPageModule),
         data: { noHeader: true },
         canActivate: [RouterTokenValidation]
       },

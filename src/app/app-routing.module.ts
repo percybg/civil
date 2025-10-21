@@ -34,6 +34,22 @@ const routes: Routes = [
     path: 'ordem-servico-nova-foto',
     loadChildren: () => import('./page/ordem-servico-nova-foto/ordem-servico-nova-foto.module').then( m => m.OrdemServicoNovaFotoPageModule)
   },
+  {
+    path: 'abastecimento-proprio',
+    loadChildren: () => import('./page/abastecimento-proprio/abastecimento-proprio.module').then( m => m.AbastecimentoProprioPageModule)
+  },
+  {
+    path: 'abastecimento-proprio-pesquisa',
+    loadChildren: () => import('./page/abastecimento-proprio-pesquisa/abastecimento-proprio-pesquisa.module').then( m => m.AbastecimentoProprioPesquisaPageModule)
+  },
+  {
+    path: 'abastecimento-proprio-edicao',
+    loadChildren: () => import('./page/abastecimento-proprio-edicao/abastecimento-proprio-edicao.module').then( m => m.AbastecimentoProprioEdicaoPageModule)
+  },
+  {
+    path: 'abastecimento-postos',
+    loadChildren: () => import('./page/abastecimento-postos/abastecimento-postos.module').then( m => m.AbastecimentoPostosPageModule)
+  },
 
 
 ];

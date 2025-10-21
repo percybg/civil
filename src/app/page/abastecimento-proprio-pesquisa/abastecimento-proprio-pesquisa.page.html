@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/abastecimento-proprio" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Abastecimento Próprio - Pesquisa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of resultados">
+    <ion-card-content>
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-align-items-start">
+          <ion-col>
+            <p class="label">Número Requisição: <span class="value">{{ item.numeroRequisicao }}</span></p>
+          </ion-col>
+          <ion-col size="auto" class="ion-text-end">
+            <p class="status">{{ item.status }}</p>
+          </ion-col>
+        </ion-row>
+
+        <p class="label">Empreendimento: <span class="value">{{ item.empreendimento }}</span></p>
+        <p class="label">Equipamento: <span class="value">{{ item.equipamento }}</span></p>
+        <p class="label"><span class="value">{{ item.bombaBico }}</span></p>
+        <p class="label">Destino: <span class="value">{{ item.destino }}</span></p>
+        <p class="label">Data: <span class="value">{{ item.data }}</span></p>
+        <p class="label">Observação: <span class="value">{{ item.observacao }}</span></p>
+      </ion-grid>
+    </ion-card-content>
+
+    <div class="details-button-container">
+      <ion-button fill="clear" expand="block" class="details-button">VER DETALHES</ion-button>
+    </div>
+  </ion-card>
+</ion-content>
