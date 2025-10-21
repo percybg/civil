@@ -1,0 +1,24 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/abastecimento-postos" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Abastecimento em postos - Pesquisa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of resultados">
+    <ion-card-content>
+      <p class="label">Fornecedor: <span class="value">{{ item.fornecedor }}</span></p>
+      <p class="label">Equipamento: <span class="value">{{ item.equipamento }}</span></p>
+      <p class="label">Voucher: <span class="value">{{ item.voucher }}</span></p>
+      <p class="label">Data: <span class="value">{{ item.data }}</span></p>
+      <p class="label">Observação: <span class="value">{{ item.observacao }}</span></p>
+    </ion-card-content>
+
+    <div class="details-button-container">
+      <ion-button fill="clear" expand="block" class="details-button">VER DETALHES</ion-button>
+    </div>
+  </ion-card>
+</ion-content>

@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'ordem-servico-pesquisa',
     loadChildren: () => import('./page/ordem-servico-pesquisa/ordem-servico-pesquisa.module').then( m => m.OrdemServicoPesquisaPageModule)
-  },  {
+  },
+  {
     path: 'ordem-servico-edicao',
     loadChildren: () => import('./page/ordem-servico-edicao/ordem-servico-edicao.module').then( m => m.OrdemServicoEdicaoPageModule)
   },
@@ -50,6 +51,14 @@ const routes: Routes = [
     path: 'abastecimento-postos',
     loadChildren: () => import('./page/abastecimento-postos/abastecimento-postos.module').then( m => m.AbastecimentoPostosPageModule)
   },
+  {
+    path: 'abastecimento-postos-pesquisa',
+    loadChildren: () => import('./page/abastecimento-postos-pesquisa/abastecimento-postos-pesquisa.module').then( m => m.AbastecimentoPostosPesquisaPageModule)
+  },  {
+    path: 'abastecimento-postos-edicao',
+    loadChildren: () => import('./page/abastecimento-postos-edicao/abastecimento-postos-edicao.module').then( m => m.AbastecimentoPostosEdicaoPageModule)
+  },
+
 
 
 ];

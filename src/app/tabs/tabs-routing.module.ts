@@ -74,12 +74,30 @@ const routes: Routes = [
         data: { noHeader: true },
         canActivate: [RouterTokenValidation]
       },
+      {
+        path: 'abastecimento-proprio-edicao',
+        loadChildren: () => import('../page/abastecimento-proprio-edicao/abastecimento-proprio-edicao.module').then(m => m.AbastecimentoProprioEdicaoPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
+      {
+        path: 'abastecimento-postos',
+        loadChildren: () => import('../page/abastecimento-postos/abastecimento-postos.module').then(m => m.AbastecimentoPostosPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
+      {
+        path: 'abastecimento-postos-pesquisa',
+        loadChildren: () => import('../page/abastecimento-postos-pesquisa/abastecimento-postos-pesquisa.module').then(m => m.AbastecimentoPostosPesquisaPageModule),
+        data: { noHeader: true },
+        canActivate: [RouterTokenValidation]
+      },
       // ==================================================
       // NOVA ROTA PARA A PÁGINA DE EDIÇÃO
       // ==================================================
       {
-        path: 'abastecimento-proprio-edicao',
-        loadChildren: () => import('../page/abastecimento-proprio-edicao/abastecimento-proprio-edicao.module').then(m => m.AbastecimentoProprioEdicaoPageModule),
+        path: 'abastecimento-postos-edicao',
+        loadChildren: () => import('../page/abastecimento-postos-edicao/abastecimento-postos-edicao.module').then(m => m.AbastecimentoPostosEdicaoPageModule),
         data: { noHeader: true },
         canActivate: [RouterTokenValidation]
       },
